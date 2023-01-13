@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Animated } from "react-animated-css";
 import { DATA } from "../assets/api/data";
 import Pop from "./Pop";
 import SendMessage from "./SendMessage";
-// import { TypeAnimation } from "react-type-animation";
+import classnames from "classnames";
+import "animate.css";
 
 const Typing = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDisplayed, setIsDisplayed] = useState(true);
-
   const [visible, setVisible] = useState(false);
+  const [data, setData] = useState();
+  const [animation, setAnimation] = useState(false);
 
   const show = () => {
     setVisible(true);
@@ -23,6 +24,7 @@ const Typing = () => {
     if (isDisplayed) {
       const intervalId = setInterval(() => {
         setCurrentIndex((currentIndex) => (currentIndex + 1) % DATA.length);
+        setData(DATA[currentIndex]);
       }, 3000);
       return () => clearInterval(intervalId);
     }
@@ -34,21 +36,32 @@ const Typing = () => {
     }
   }, [currentIndex]);
 
+  useEffect(() => {
+    setAnimation(true);
+    setTimeout(() => {
+      setAnimation(false);
+    }, 3000);
+  }, [currentIndex]);
+
   return (
     <div className="typing">
-      {DATA.map((data, index) => {
-        return (
-          <div
-            className="typing__text"
-            style={{
-              opacity: currentIndex === index ? 1 : 0,
-            }}
-          >
-            {data.text}
-          </div>
-        );
-      })}
-      {(currentIndex === 8 || currentIndex === 13) && <Pop />}
+      {data && (
+        <div
+          className={classnames(
+            "typing__text",
+            animation && "animated",
+            animation && data.appear,
+            !animation && "animated",
+            !animation && data.disappear
+          )}
+        >
+          {data.text}
+          {data.text === "Happy birthday!" && <span className="emoji">🎉</span>}
+        </div>
+      )}
+      {(currentIndex === 0 || currentIndex === 10 || currentIndex === 15) && (
+        <Pop />
+      )}
       {!isDisplayed && (
         <div className="btn-container">
           <button
@@ -60,7 +73,7 @@ const Typing = () => {
           >
             Reload
           </button>
-          <button onClick={show} className="btn btn-reload">
+          <button onClick={show} className="btn btn-send">
             Send message
           </button>
         </div>

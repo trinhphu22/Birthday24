@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import HeaderImage from "../components/HeaderImage";
-import { Test } from "../components/Test";
 import Typing from "../components/Typing";
 
 const Home = () => {
@@ -20,7 +19,6 @@ const Home = () => {
       {isDisplayed && (
         <div className="home__body">
           <Typing />
-          {/* <Test /> */}
         </div>
       )}
     </div>

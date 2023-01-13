@@ -32,8 +32,7 @@ const Layout = () => {
         onViewportEnter={() => setIsInView(true)}
       >
         {isLoad === 0 && <Landing />}
-        {isLoad === 1 && <Landing />}
-        {isLoad === 1 && <Home />}
+        {isLoad === 1 && <Landing /> && <Home />}
       </motion.div>
     </div>
   );
