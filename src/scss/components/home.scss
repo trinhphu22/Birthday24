@@ -4,18 +4,18 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-//   background: linear-gradient(
-//     #FFC6EE 25%,
-//     #FEE2C5 25% 50%,
-//     #F7F0E6 50% 75%,
-//     #D1E5B2 75%
-//   );
-background: linear-gradient(
-    #EFB0C9 20%,
-    #F4C2D7 20% 40%,
-    #F8DAE9 40% 60%,
-    #B9D6F3 60% 80%,
-    #A1C9F1 80%
+  //   background: linear-gradient(
+  //     #FFC6EE 25%,
+  //     #FEE2C5 25% 50%,
+  //     #F7F0E6 50% 75%,
+  //     #D1E5B2 75%
+  //   );
+  background: linear-gradient(
+    #efb0c9 20%,
+    #f4c2d7 20% 40%,
+    #f8dae9 40% 60%,
+    #b9d6f3 60% 80%,
+    #a1c9f1 80%
   );
 
   &__header {
@@ -40,8 +40,20 @@ background: linear-gradient(
 }
 
 .typing {
-  @include flex(center, flex-start);
+  @include flex(center, center);
 
   margin-top: 100px;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  position: relative;
+
+  &__text {
+    @include flex(center, center);
+
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    bottom: -70px;
+    // right: -500px;
+  }
 }

@@ -12,10 +12,10 @@ const Layout = () => {
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    setInterval(() => {
       setIsLoad(1);
       setIsLoaded(true);
-    }, 4000);
+    }, 3000);
   }, [isLoaded]);
 
   return (

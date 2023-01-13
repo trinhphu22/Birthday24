@@ -38,7 +38,7 @@ const Pop = () => {
     requestAnimationFrame(render);
   }
   pop();
-  window.setTimeout(render, 700);
+  window.setTimeout(render, 500);
   // window.addEventListener("click", pop);
 
 };

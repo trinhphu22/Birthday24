@@ -1,34 +1,34 @@
-import React, { useState } from "react";
-import { TypeAnimation } from "react-type-animation";
+import React, { useEffect, useState } from "react";
+import { Animated } from "react-animated-css";
+import { DATA } from "../assets/api/data";
+import Pop from "./Pop";
+// import { TypeAnimation } from "react-type-animation";
 
 const Typing = () => {
-//   const [text, setText] = useState("Hello I am FLY ");
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       setText("Hello I am ");
-  //     }, 2500);
-  //   }, [text]);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((currentIndex) => (currentIndex + 1) % DATA.length);
+    }, 3000);
+    return () => clearInterval(intervalId);
+  }, [currentIndex]);
 
   return (
     <div className="typing">
-      <TypeAnimation
-        // Same String at the start will only be typed once, initially
-        sequence={[
-          "We produce food for Mice",
-          1000,
-          "We produce food for Hamsters",
-          1000,
-          "We produce food for Guinea Pigs",
-          1000,
-          "We produce food for Chinchillas",
-          1000,
-        ]}
-        speed={20} // Custom Speed from 1-99 - Default Speed: 40
-        style={{ fontSize: "2em" }}
-        wrapper="span" // Animation will be rendered as a <span>
-        repeat={Infinity} // Repeat this Animation Sequence infinitely
-      />
+      {DATA.map((data, index) => {
+        return (
+          <div
+            className="typing__text"
+            style={{
+              opacity: currentIndex === index ? 1 : 0,
+            }}
+          >
+            {data.text}
+          </div>
+        );
+      })}
+      {(currentIndex === 8 || currentIndex === 13) && <Pop />}
     </div>
   );
 };
