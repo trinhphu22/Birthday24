@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import HeaderImage from "../components/HeaderImage";
-import Helmet from "../components/Helmet";
 import Typing from "../components/Typing";
 
 const Home = () => {
