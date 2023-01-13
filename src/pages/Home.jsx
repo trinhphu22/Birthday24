@@ -13,7 +13,6 @@ const Home = () => {
   }, []);
 
   return (
-    <Helmet title="Happy Birthday Guiltia 🎉">
       <div className="home">
         <div className="home__header">
           <HeaderImage />
@@ -24,7 +23,6 @@ const Home = () => {
           </div>
         )}
       </div>
-    </Helmet>
   );
 };
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Home from "./Home";
 import Landing from "../components/Pop";
 import { motion } from "framer-motion";
+import Helmet from "../components/Helmet";
 
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
@@ -19,7 +20,7 @@ const Layout = () => {
   }, [isLoaded]);
 
   return (
-    <div>
+    <Helmet title="Happy Birthday Guiltia 🎉">
       <motion.div
         initial={false}
         animate={
@@ -34,7 +35,7 @@ const Layout = () => {
         {isLoad === 0 && <Landing />}
         {isLoad === 1 && <Landing /> && <Home />}
       </motion.div>
-    </div>
+    </Helmet>
   );
 };
 
