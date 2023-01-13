@@ -16,7 +16,7 @@ const HeaderImage = () => {
         <motion.div
           animate={{
             scale: [1, 1.5, 1.5, 1, 1],
-            rotate: [0, 25, -25, -25, 25, 0],
+            rotate: [0, 15, -15, -15, 15, 0],
             borderRadius: ["0%", "0%", "50%", "50%", "0%"],
           }}
           transition={{

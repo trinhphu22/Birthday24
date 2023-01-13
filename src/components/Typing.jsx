@@ -25,7 +25,7 @@ const Typing = () => {
       const intervalId = setInterval(() => {
         setCurrentIndex((currentIndex) => (currentIndex + 1) % DATA.length);
         setData(DATA[currentIndex]);
-      }, 3000);
+      }, 4000);
       return () => clearInterval(intervalId);
     }
   }, [currentIndex, isDisplayed]);
