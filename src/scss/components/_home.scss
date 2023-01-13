@@ -40,20 +40,69 @@
 }
 
 .typing {
-  @include flex(center, center);
+  @include flex(center, flex-start);
 
   margin-top: 100px;
+  height: 100%;
   font-size: 2.5rem;
   position: relative;
 
   &__text {
-    @include flex(center, center);
-
     width: 100%;
     padding: 10px;
     text-align: center;
     position: absolute;
-    bottom: -70px;
     // right: -500px;
+  }
+
+  .btn-container {
+    position: absolute;
+    top: 300px;
+    width: 100%;
+    gap: 20px;
+
+    @include flex(center, center);
+
+    .btn {
+      border-radius: 10px;
+      font-family: $font-design;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .btn-reload {
+      height: 50px;
+      width: 150px;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+/* animations.css */
+.slideInUp-enter {
+  animation: slideInUp 0.5s ease-in-out;
+}
+
+.slideInUp-exit {
+  animation: zoomOut 0.5s ease-in-out;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
   }
 }

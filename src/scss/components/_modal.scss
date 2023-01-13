@@ -1,0 +1,87 @@
+.modal {
+    @include flex(center, space-between);
+  
+    flex-direction: column;
+    height: 100%;
+  
+    &__header {
+      @include flex(center, center);
+  
+      height: 40px;
+      margin-top: 10px;
+      font-family: $font-design;
+      font-size: 1.5rem;
+    }
+  
+    &__body {
+      @include flex(center, center);
+  
+      height: calc(100% - 40px);
+      padding: 15px;
+
+      &__input {
+        @include flex(center, center);
+        
+        width: 100%;
+  
+        textarea {
+          width: 100%;
+          height: 80px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          padding: 5px 10px;
+          // font-size: 1.2rem;
+          background-color: map-get($map: $colors, $key: SILVER);
+  
+          &:focus {
+            outline: none;
+            background-color: map-get($map: $colors, $key: WHITE);
+          }
+        }
+      }
+    }
+  
+    &__footer {
+      @include flex(center, center);
+  
+      position: -webkit-sticky;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+  
+      & > * {
+        //   margin: 0 10px;
+        width: 100%;
+        height: 100%;
+  
+        button {
+          width: 100%;
+          height: 100%;
+          background-color: map-get($map: $colors, $key: GRAY);
+          border: none;
+          color: map-get($map: $colors, $key: WHITE);
+  
+          &:hover {
+          //   background-color: map-get($map: $colors, $key: GRAY_TXT_SECOND);
+          background-color: #bbb;
+            cursor: pointer;
+          }
+        }
+  
+        .save {
+          background-color: $main-color;
+          border-bottom-right-radius: 10px;
+  
+          &:hover {
+            background-color: $main-color-hover;
+          }
+        }
+  
+        .cancel {
+          border-bottom-left-radius: 10px;
+        }
+      }
+    }
+  }
+  

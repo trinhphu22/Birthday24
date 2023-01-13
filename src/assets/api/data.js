@@ -59,4 +59,8 @@ export const DATA = [
     id: 15,
     text: "特別な人にお誕生日おめでとう",
   },
+  {
+    id: 16,
+    text: "",
+  },
 ];
